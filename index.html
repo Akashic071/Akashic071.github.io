@@ -1,12 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Design Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0816" />
+  <title>AKASHIC — Enter</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0b0816; --ink:#292438; --muted:#aaa4b9; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; min-height:100%; }
+    body { background:var(--bg); color:#eeeaf6; font-family:Inter,Arial,Helvetica,sans-serif; }
+    .landing { min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:5vw 5vw 4vh; position:relative; overflow:hidden; }
+    .enter-area { display:flex; flex-direction:column; align-items:center; width:min(100%,1140px); cursor:pointer; user-select:none; outline:none; text-decoration:none; color:inherit; }
+    .enter-area:focus-visible { outline:1px solid #79728d; outline-offset:16px; border-radius:8px; }
+    .wordmark { width:100%; overflow:visible; display:block; }
+    .base-text { fill:var(--ink); }
+    .ribbon-soft { filter:url(#soft-glow); opacity:.32; }
+    .ribbon-main { opacity:.94; }
+    .enter-hint { font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--muted); margin-top:clamp(18px,3vw,38px); display:flex; align-items:center; gap:15px; transition:opacity .3s,transform .3s; animation:breathe 2.7s ease-in-out infinite; }
+    .enter-hint::before,.enter-hint::after { content:""; width:23px; height:1px; background:currentColor; opacity:.6; }
+    .enter-area:hover .enter-hint { transform:translateY(4px); opacity:1; }
+    .footer { position:absolute; bottom:clamp(22px,4vw,42px); display:flex; justify-content:center; gap:24px; align-items:center; }
+    .footer a { color:#aba5b8; text-decoration:none; font-size:12px; letter-spacing:.06em; transition:color .2s; }
+    .footer a:hover,.footer a:focus-visible { color:#fff; }
+    .corner { position:absolute; top:30px; left:clamp(20px,4vw,52px); color:#6e677e; font-size:11px; letter-spacing:.13em; }
+    @keyframes breathe { 0%,100% { opacity:.47; } 50% { opacity:.92; } }
+    @media (max-width:680px) { .landing { padding:20px 16px; } .enter-hint{ font-size:9px; letter-spacing:.2em; margin-top:6px; gap:9px; } .enter-hint::before,.enter-hint::after{ width:13px; } .footer{ bottom:33px; gap:16px;} .corner{top:23px;} }
+    @media (prefers-reduced-motion: reduce) { .enter-hint{animation:none;opacity:.85;} .enter-area:hover .enter-hint{transform:none;} }
+  </style>
 </head>
 <body>
-  <h1>Hello, I'm Akashic.</h1>
-  <p>Welcome to my design portfolio.</p>
+<main class="landing">
+  <span class="corner">DESIGN PORTFOLIO / 2026</span>
+  <!-- Change "AKASHIC" in BOTH text elements below to your own wordmark. -->
+  <a class="enter-area" href="portfolio.html" aria-label="Enter design portfolio">
+    <svg class="wordmark" viewBox="0 0 1100 300" role="img" aria-labelledby="logo-title" xmlns="http://www.w3.org/2000/svg">
+      <title id="logo-title">AKASHIC</title>
+      <defs>
+        <linearGradient id="rainbow" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#593178" />
+          <stop offset="19%" stop-color="#4649a8" />
+          <stop offset="35%" stop-color="#237db1" />
+          <stop offset="49%" stop-color="#28b995" />
+          <stop offset="61%" stop-color="#b0ba51" />
+          <stop offset="74%" stop-color="#fba33f" />
+          <stop offset="84%" stop-color="#e94b56" />
+          <stop offset="100%" stop-color="#733c86" />
+        </linearGradient>
+        <filter id="soft-glow" x="-20%" y="-100%" width="140%" height="300%">
+          <feGaussianBlur stdDeviation="10" />
+        </filter>
+        <mask id="letter-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1100" height="300">
+          <rect width="1100" height="300" fill="black" />
+          <text x="550" y="233" text-anchor="middle" font-family="Impact, 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif" font-size="228" font-stretch="condensed" font-weight="900" textLength="1000" lengthAdjust="spacingAndGlyphs" fill="white">AKASHIC</text>
+        </mask>
+      </defs>
+      <text class="base-text" x="550" y="233" text-anchor="middle" font-family="Impact, 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif" font-size="228" font-stretch="condensed" font-weight="900" textLength="1000" lengthAdjust="spacingAndGlyphs">AKASHIC</text>
+      <g mask="url(#letter-mask)">
+        <path id="wave-glow" class="ribbon-soft" fill="url(#rainbow)" />
+        <path id="wave" class="ribbon-main" fill="url(#rainbow)" />
+      </g>
+    </svg>
+    <span class="enter-hint">Click anywhere here to enter <span aria-hidden="true">↗</span></span>
+  </a>
+  <nav class="footer" aria-label="Social links">
+    <!-- Replace these placeholder URLs with your own profiles; remove any unused links. -->
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+    <a href="mailto:hello@example.com">EMAIL ↗</a>
+  </nav>
+</main>
+<script>
+(() => {
+  const wave = document.getElementById('wave');
+  const glow = document.getElementById('wave-glow');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let animationId = null;
+  function buildWave(t) {
+    const top = [], bottom = [];
+    const steps = 90;
+    for (let i = 0; i <= steps; i++) {
+      const x = -30 + i * 1160 / steps;
+      const shift = 23 * Math.sin(x / 110 - t * .65) + 13 * Math.sin(x / 59 + t * .42);
+      const centerY = 171 + shift;
+      const width = 29 + 7 * Math.sin(x / 140 + t * .6);
+      top.push(`${i ? 'L' : 'M'} ${x.toFixed(1)} ${(centerY - width).toFixed(1)}`);
+      bottom.push(`L ${x.toFixed(1)} ${(centerY + width).toFixed(1)}`);
+    }
+    return `${top.join(' ')} ${bottom.reverse().join(' ')} Z`;
+  }
+  function frame(ms) {
+    const d = buildWave(ms / 1000);
+    wave.setAttribute('d', d);
+    glow.setAttribute('d', d);
+    animationId = window.requestAnimationFrame(frame);
+  }
+  function syncMotion() {
+    if (animationId !== null) { cancelAnimationFrame(animationId); animationId = null; }
+    if (reducedMotion.matches) {
+      const d = buildWave(0);
+      wave.setAttribute('d', d);
+      glow.setAttribute('d', d);
+    } else animationId = window.requestAnimationFrame(frame);
+  }
+  reducedMotion.addEventListener?.('change', syncMotion);
+  document.addEventListener('visibilitychange', () => { if (document.hidden && animationId !== null) { cancelAnimationFrame(animationId); animationId = null; } else if (!document.hidden) syncMotion(); });
+  syncMotion();
+})();
+</script>
 </body>
 </html>
