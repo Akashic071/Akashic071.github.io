@@ -1,0 +1,494 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0917">
+  <title>MyKo — Hanxu Yu | AKASHIC</title>
+  <meta name="description" content="MyKo is a mycelium-based toy-making toolkit encouraging open-ended play and sensory exploration for young children.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* MyKo project page */
+    .myko-page {
+      --myko-bg: #0c0917;
+      --myko-text: #f5eee9;
+      --myko-muted: #b6aeb7;
+      --myko-accent: #dd7158;
+      background: var(--myko-bg);
+      color: var(--myko-text);
+      min-height: 100vh;
+    }
+
+    .myko-container {
+      width: min(1100px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .myko-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 30px 0;
+      border-bottom: 1px solid #39313e;
+    }
+
+    .myko-nav a {
+      color: #f5eee9;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: .1em;
+    }
+
+    .myko-logo {
+      font-weight: 800;
+      font-size: 20px !important;
+      letter-spacing: -.03em !important;
+    }
+
+    .myko-hero {
+      padding: 96px 0 56px;
+    }
+
+    .myko-kicker {
+      color: var(--myko-accent);
+      font-size: 12px;
+      letter-spacing: .18em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .myko-hero h1 {
+      font-size: clamp(76px, 14vw, 170px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.075em;
+      margin: 18px 0 22px;
+    }
+
+    .myko-subtitle {
+      max-width: 780px;
+      font-size: clamp(19px, 2.8vw, 28px);
+      line-height: 1.45;
+      font-weight: 400;
+      color: #e7dce0;
+      margin-bottom: 38px;
+    }
+
+    .myko-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .myko-meta span {
+      border: 1px solid #514451;
+      border-radius: 99px;
+      padding: 8px 16px;
+      font-size: 11px;
+      color: #ded0d7;
+    }
+
+    .myko-cover {
+      margin: 0;
+    }
+
+    .myko-cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 620px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .myko-cover figcaption {
+      padding: 12px 0;
+      font-size: 12px;
+      color: var(--myko-muted);
+    }
+
+    .myko-content {
+      padding: 76px 0 110px;
+    }
+
+    .myko-section {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 56px;
+      padding: 54px 0;
+      border-top: 1px solid #38303d;
+    }
+
+    .myko-section h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .myko-section p {
+      color: #d2c8d2;
+      font-size: 16px;
+      line-height: 1.9;
+      margin: 0 0 18px;
+    }
+
+    .myko-lead {
+      font-size: 20px !important;
+      color: #f2e8e7 !important;
+      line-height: 1.7 !important;
+    }
+
+    .myko-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .myko-step {
+      min-height: 136px;
+      padding: 24px 19px;
+      background: #211724;
+      border-radius: 6px;
+    }
+
+    .myko-step-number {
+      display: block;
+      color: var(--myko-accent);
+      font-size: 13px;
+      margin-bottom: 23px;
+    }
+
+    .myko-step-title {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #f7eeeb;
+    }
+
+    .myko-outcome {
+      background: #a35f48;
+      color: #fff4e9;
+      padding: 70px 0;
+    }
+
+    .myko-outcome h2 {
+      font-size: clamp(30px, 5vw, 52px);
+      margin: 0 0 24px;
+    }
+
+    .myko-outcome p {
+      max-width: 780px;
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .myko-credits {
+      padding: 48px 0;
+      border-top: 1px solid #39313e;
+    }
+
+    .myko-credits p {
+      color: #c7bbc7;
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    .myko-footer {
+      border-top: 1px solid #39313e;
+      padding: 30px 0 50px;
+    }
+
+    .myko-footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .myko-footer a,
+    .myko-footer span {
+      color: #d7ccd5;
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .myko-hero {
+        padding: 60px 0 40px;
+      }
+
+      .myko-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .myko-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .myko-footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="myko-page">
+
+  <!-- Navigation -->
+  <header class="myko-container">
+    <nav class="myko-nav" aria-label="Main navigation">
+      <a class="myko-logo" href="portfolio.html">AKASHIC</a>
+      <a href="works.html">← ALL WORKS</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Project Introduction -->
+    <section class="myko-hero myko-container">
+      <div class="myko-kicker">
+        INDUSTRIAL DESIGN / BIO-MATERIAL / OPEN PLAY
+      </div>
+
+      <h1>MyKo.</h1>
+
+      <p class="myko-subtitle">
+        Designing Living Artifacts for Open Play with Mycelium
+      </p>
+
+      <div class="myko-meta">
+        <span>TU/e · M11 Project</span>
+        <span>2025</span>
+        <span>Group Project</span>
+        <span>Children Aged 2–4</span>
+      </div>
+    </section>
+
+    <!-- Hero Image -->
+    <figure class="myko-cover myko-container">
+      <img
+        src="myko-hero.jpg"
+        alt="A child riding a bicycle while an adult carries the MyKo incubator outdoors"
+        fetchpriority="high">
+      <figcaption>
+        MyKo in an outdoor play scenario.
+      </figcaption>
+    </figure>
+
+    <div class="myko-content myko-container">
+
+      <!-- Overview -->
+      <section class="myko-section" id="overview">
+        <h2>Overview.</h2>
+
+        <div>
+          <p class="myko-lead">
+            What if children could grow their own toys
+            instead of simply playing with finished products?
+          </p>
+
+          <p>
+            MyKo is a bio-based toy-making toolkit designed
+            for children aged 2–4. Combining natural materials,
+            mycelium growth, and open-ended play, the project
+            explores how young children can engage with nature
+            through hands-on making and sensory experiences.
+          </p>
+
+          <p>
+            Rather than providing a finished toy, MyKo invites
+            children to participate in its creation, from
+            collecting materials outdoors to shaping,
+            observing, and eventually playing with their
+            own mycelium-based objects.
+          </p>
+        </div>
+      </section>
+
+      <!-- Research and Exploration -->
+      <section class="myko-section" id="research">
+        <h2>Research & Exploration.</h2>
+
+        <div>
+          <p>
+            The design process combined benchmarking,
+            semi-structured interviews with parents and
+            relevant stakeholders, material experimentation,
+            and iterative prototyping.
+          </p>
+
+          <p>
+            We explored how different natural substrates,
+            including leaves, twigs, acorns, and chestnuts,
+            affect mycelium growth, structural stability,
+            and tactile qualities.
+          </p>
+
+          <p>
+            Through reflection and experimentation, our
+            focus shifted from designing individual
+            bio-based toys to developing a complete
+            toy-making experience that incorporates
+            material transformation and time.
+          </p>
+        </div>
+      </section>
+
+      <!-- Design Process -->
+      <section class="myko-section" id="process">
+        <h2>The Making Journey.</h2>
+
+        <div>
+          <p>
+            MyKo encourages children to become active
+            makers through a sequence of exploratory
+            activities supported by adult supervision
+            where needed.
+          </p>
+
+          <div class="myko-steps">
+            <div class="myko-step">
+              <span class="myko-step-number">01</span>
+              <div class="myko-step-title">
+                Collect natural materials
+              </div>
+            </div>
+
+            <div class="myko-step">
+              <span class="myko-step-number">02</span>
+              <div class="myko-step-title">
+                Break and mix materials
+              </div>
+            </div>
+
+            <div class="myko-step">
+              <span class="myko-step-number">03</span>
+              <div class="myko-step-title">
+                Fill and shape the mold
+              </div>
+            </div>
+
+            <div class="myko-step">
+              <span class="myko-step-number">04</span>
+              <div class="myko-step-title">
+                Introduce mycelium
+              </div>
+            </div>
+
+            <div class="myko-step">
+              <span class="myko-step-number">05</span>
+              <div class="myko-step-title">
+                Observe growth and dry the toy
+              </div>
+            </div>
+
+            <div class="myko-step">
+              <span class="myko-step-number">06</span>
+              <div class="myko-step-title">
+                Play and return to nature
+              </div>
+            </div>
+          </div>
+
+          <p style="margin-top:24px;font-size:13px">
+            Heating, sterilization, and other potentially
+            unsafe operations require adult supervision.
+          </p>
+        </div>
+      </section>
+
+      <!-- Toolkit -->
+      <section class="myko-section" id="toolkit">
+        <h2>The Toolkit.</h2>
+
+        <div>
+          <p class="myko-lead">
+            A set of tools designed to support the
+            transformation from natural materials into
+            self-made toys.
+          </p>
+
+          <p>
+            The final concept includes three key components:
+            a multifunctional incubator, transparent toy
+            molds, and a specially designed syringe for
+            introducing liquid mycelium culture.
+          </p>
+
+          <p>
+            The incubator serves as a collection basket,
+            growing chamber, and drying device at different
+            stages. Transparent windows allow children
+            to observe changes in the material over time.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Outcome -->
+    <section class="myko-outcome">
+      <div class="myko-container">
+        <div class="myko-kicker" style="color:#ffe2cc">
+          DESIGN OUTCOME
+        </div>
+
+        <h2>Growing through Play.</h2>
+
+        <p>
+          MyKo proposes a process-oriented approach to
+          early childhood play, where living materials,
+          sensory exploration, and waiting become part
+          of the making experience. The project explores
+          how children might develop greater curiosity
+          and awareness of natural transformation by
+          participating in the creation of their own toys.
+        </p>
+      </div>
+    </section>
+
+    <!-- Credits -->
+    <section class="myko-credits">
+      <div class="myko-container">
+        <div class="myko-kicker">PROJECT CREDITS</div>
+
+        <p>
+          Team: Hanxu Yu, Shiang-Ting Huang,
+          Duco Kylian Warnaar, Jasper Scheffer.
+          <br>
+          Eindhoven University of Technology (TU/e)
+          <br>
+          September – December 2025
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="myko-footer">
+    <div class="myko-container myko-footer-inner">
+      <span>© 2026 HANXU YU / AKASHIC</span>
+      <div>
+        <a href="works.html">ALL WORKS ↗</a>
+        &nbsp;&nbsp;
+        <a href="portfolio.html">BACK HOME ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
