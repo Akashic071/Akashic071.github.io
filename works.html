@@ -5,98 +5,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c0917">
-  <title>All Works — AKASHIC</title>
+
+  <title>All Works — Hanxu Yu | AKASHIC</title>
+  <meta name="description"
+    content="Selected design projects by Hanxu Yu.">
+
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* MyKo photographic cover */
-    .project-art.art-myko {
+    /* Real project covers */
+
+    .project-art.art-myko,
+    .project-art.art-lybi,
+    .project-art.art-mycare {
       position: relative;
       overflow: hidden;
-      background: #b59d79;
     }
 
-    .project-art.art-myko .shape {
-      display: none;
+    .project-art.art-myko { background: #b59d79; }
+    .project-art.art-lybi { background: #233e6a; }
+    .project-art.art-mycare { background: #e4a4b4; }
+
+    .project-art.art-myko .shape,
+    .project-art.art-lybi .shape,
+    .project-art.art-mycare .shape {
+      display: none !important;
     }
 
-    .myko-cover-image {
+    .project-art .project-cover-image {
       position: absolute;
       inset: 0;
+      z-index: 1;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
       display: block;
-      transition: transform 0.45s ease;
-    }
-
-    .project-card a:hover .myko-cover-image {
-      transform: scale(1.045);
-    }
-
-    .project-art.art-myko::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(
-        to top,
-        rgba(12,9,23,0.55),
-        transparent 55%
-      );
-      pointer-events: none;
-    }
-
-    .project-art.art-myko .tag {
-      z-index: 2;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .myko-cover-image {
-        transition: none;
-      }
-    }
-    
-    /* LyBi project cover */
-    .lybi-project-art {
-      position: relative;
-      overflow: hidden;
-      background: #233e6a;
-    }
-    
-    .lybi-cover-image {
-      position: absolute;
-      inset: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
       object-fit: cover;
       object-position: center;
       transition: transform .45s ease;
     }
-    
-    .project-card a:hover .lybi-cover-image {
+
+    .project-card a:hover .project-cover-image {
       transform: scale(1.045);
     }
-    
-    .lybi-project-art .tag {
-      position: relative;
+
+    .project-art.art-myko::after,
+    .project-art.art-lybi::after,
+    .project-art.art-mycare::after {
+      content: "";
+      position: absolute;
+      inset: 0;
       z-index: 2;
-    }
-    
-    @media (prefers-reduced-motion: reduce) {
-      .lybi-cover-image {
-        transition: none;
-      }
+      background: linear-gradient(
+        to top,
+        rgba(12, 9, 23, .60),
+        transparent 65%
+      );
+      pointer-events: none;
     }
 
+    .project-art.art-myko .tag,
+    .project-art.art-lybi .tag,
+    .project-art.art-mycare .tag {
+      position: relative;
+      z-index: 3;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .project-cover-image {
+        transition: none !important;
+      }
+
+      .project-card a:hover .project-cover-image {
+        transform: none;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- Navigation -->
+  <!-- NAVIGATION -->
   <div class="sticky-nav">
     <div class="container">
 
@@ -109,46 +97,47 @@
         <a href="works.html" aria-current="page">
           ALL WORKS
         </a>
-        <a href="portfolio.html#contact">
-          CONTACT
-        </a>
+        <a href="portfolio.html#contact">CONTACT</a>
       </nav>
 
     </div>
   </div>
 
+  <!-- ALL WORKS -->
   <main class="allworks">
     <div class="container">
 
       <div class="kicker">
-        PORTFOLIO / 2023—2026
+        PORTFOLIO / SELECTED PROJECTS
       </div>
 
       <h1>All Works.</h1>
 
       <p class="intro">
         Projects and explorations across interaction
-        design, design research, textiles, material
-        experiences, and prototyping.
-        Select a project to view its overview.
+        design, product and service design,
+        design research, material experiences,
+        and creative technology.
       </p>
 
-      <!-- Projects -->
-      <section class="project-grid" aria-label="All projects">
+      <section
+        class="project-grid"
+        aria-label="Design projects">
 
         <!-- 01 MYKO -->
         <article class="project-card">
           <a href="myko.html">
 
             <div class="project-art art-myko">
+
               <img
-                class="myko-cover-image"
+                class="project-cover-image"
                 src="myko-hero.jpg"
                 alt="MyKo outdoor toy-making experience"
                 loading="lazy">
 
               <span class="tag">
-                01 / BIO-BASED TOY DESIGN
+                BIO-BASED TOY DESIGN
               </span>
             </div>
 
@@ -162,42 +151,69 @@
           </a>
         </article>
 
-
         <!-- 02 LYBI -->
         <article class="project-card">
           <a href="lybi.html">
-        
-            <div class="project-art lybi-project-art">
+
+            <div class="project-art art-lybi">
+
               <img
-                class="lybi-cover-image"
+                class="project-cover-image"
                 src="lybi-chat.png"
-                alt="LyBi poetic conversational interface"
+                alt="LyBi poetic chatbot interface"
                 loading="lazy">
-        
+
               <span class="tag">
                 LLM INTERACTION
               </span>
             </div>
-        
+
             <h3>LyBi</h3>
-        
+
             <p>
               LLM Interaction · Conversational Design
               · Temporal Experience
             </p>
-        
+
           </a>
         </article>
 
+        <!-- 03 MYCARE -->
+        <article class="project-card">
+          <a href="mycare.html">
 
-        <!-- 03 PLANT SENSING -->
+            <div class="project-art art-mycare">
+
+              <img
+                class="project-cover-image"
+                src="Kits&amp;Strip2.png"
+                alt="MyCare portable HPV screening device concept"
+                loading="lazy">
+
+              <span class="tag">
+                PRODUCT & SERVICE DESIGN
+              </span>
+            </div>
+
+            <h3>MyCare</h3>
+
+            <p>
+              Women's Health · Product Design
+              · UX/UI Design
+            </p>
+
+          </a>
+        </article>
+
+        <!-- 04 PLANT SENSING -->
         <article class="project-card">
           <a href="project.html?id=plant">
 
             <div class="project-art art-plant">
               <div class="shape"></div>
+
               <span class="tag">
-                03 / IN PROGRESS
+                WORK IN PROGRESS
               </span>
             </div>
 
@@ -211,35 +227,15 @@
           </a>
         </article>
 
-        <!-- 04 MYCARE -->
-        <article class="project-card">
-          <a href="project.html?id=mycare">
-
-            <div class="project-art art-mycare">
-              <div class="shape"></div>
-              <span class="tag">
-                04 / PRODUCT & SERVICE
-              </span>
-            </div>
-
-            <h3>MyCare</h3>
-
-            <p>
-              Home Screening Concept · Product
-              and Service Experience
-            </p>
-
-          </a>
-        </article>
-
         <!-- 05 VIBESYETI -->
         <article class="project-card">
           <a href="project.html?id=vibes">
 
             <div class="project-art art-vibes">
               <div class="shape"></div>
+
               <span class="tag">
-                05 / PROTOTYPING
+                INTERACTIVE PROTOTYPING
               </span>
             </div>
 
@@ -258,8 +254,9 @@
 
             <div class="project-art art-explore">
               <div class="shape"></div>
+
               <span class="tag">
-                06 / EXPERIMENTS
+                MATERIAL EXPERIMENTS
               </span>
             </div>
 
@@ -273,11 +270,10 @@
         </article>
 
       </section>
-
     </div>
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="foot">
     <div class="container">
 
@@ -289,7 +285,9 @@
         <a href="mailto:akashic55256@gmail.com">
           EMAIL ↗
         </a>
+
         &nbsp;·&nbsp;
+
         <a href="portfolio.html">
           HOME ↗
         </a>
