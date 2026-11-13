@@ -109,19 +109,32 @@
       width: min(1080px, calc(100% - 48px));
       margin: 0 auto;
     }
-
-    .hero-image img {
+    
+    .hero-frame {
+      width: 100%;
+      min-height: clamp(320px, 42vw, 520px);
+      background: #d9e8f6;
+      border: 1px solid #bdd3e8;
+      border-radius: 10px;
+      padding: clamp(18px, 2.8vw, 36px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 40px rgba(114, 152, 189, 0.16);
+    }
+    
+    .hero-frame img {
       display: block;
       width: 100%;
-      height: auto;
-      max-height: 650px;
+      height: 100%;
+      max-height: 440px;
       object-fit: contain;
       object-position: center;
-      border-radius: 5px;
+      border-radius: 6px;
     }
-
+    
     .image-note {
-      margin-top: 12px;
+      margin-top: 14px;
       color: var(--muted);
       font-size: 12px;
     }
@@ -424,11 +437,13 @@
 
     <!-- MAIN VISUAL -->
     <figure class="hero-image">
-      <img
-        src="scene-yeti.png"
-        alt="Child sleeping while hugging VibesYeti"
-        fetchpriority="high">
-
+      <div class="hero-frame">
+        <img
+          src="scene-yeti.png"
+          alt="Child sleeping while hugging VibesYeti"
+          fetchpriority="high">
+      </div>
+    
       <figcaption class="image-note">
         VibesYeti — A tactile companion for moments
         of separation.
