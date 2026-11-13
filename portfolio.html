@@ -16,71 +16,127 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* Extra spacing below the avatar */
+    /* ==================================
+       HEADER AVATAR
+    ================================== */
+
     .brand-illustration {
       margin-bottom: 32px;
     }
 
     .brand-illustration img {
+      display: block;
       width: 130px;
       height: 95px;
       object-fit: contain;
     }
 
-    /* MyKo photographic cover */
-    .project-art.art-myko {
+
+    /* ==================================
+       PROJECT IMAGE COVERS
+    ================================== */
+
+    .project-art.art-myko,
+    .project-art.art-lybi {
       position: relative;
       overflow: hidden;
+    }
+
+    .project-art.art-myko {
       background: #b59d79;
     }
 
-    .project-art.art-myko .shape {
-      display: none;
+    .project-art.art-lybi {
+      background: #233e6a;
     }
 
-    .myko-cover-image {
+    /* Hide previous decorative shapes */
+
+    .project-art.art-myko .shape,
+    .project-art.art-lybi .shape {
+      display: none !important;
+    }
+
+    /* Real photographic / screenshot covers */
+
+    .project-art .project-cover-image {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
+      display: block;
       object-fit: cover;
       object-position: center;
-      display: block;
-      transition: transform 0.5s ease;
+      z-index: 1;
+
+      transition: transform 0.45s ease;
     }
 
-    .project-card a:hover .myko-cover-image {
+    /* MyKo photo positioning */
+
+    .project-art.art-myko .project-cover-image {
+      object-position: center;
+    }
+
+    /* LyBi interface positioning */
+
+    .project-art.art-lybi .project-cover-image {
+      object-position: center;
+    }
+
+    /* Hover animation */
+
+    .project-card a:hover .project-cover-image {
       transform: scale(1.045);
     }
 
-    .project-art.art-myko::after {
+    /* Gradient for text visibility */
+
+    .project-art.art-myko::after,
+    .project-art.art-lybi::after {
       content: "";
       position: absolute;
       inset: 0;
+      z-index: 2;
+
       background: linear-gradient(
         to top,
-        rgba(12, 9, 23, 0.48),
-        transparent 55%
+        rgba(12, 9, 23, 0.6),
+        rgba(12, 9, 23, 0) 65%
       );
+
       pointer-events: none;
     }
 
-    .project-art.art-myko .tag {
-      z-index: 2;
+    /* Project category label */
+
+    .project-art.art-myko .tag,
+    .project-art.art-lybi .tag {
+      position: relative;
+      z-index: 3;
     }
 
+    /* Reduce animation if requested */
+
     @media (prefers-reduced-motion: reduce) {
-      .myko-cover-image {
-        transition: none;
+      .project-card a:hover .project-cover-image {
+        transform: none;
+      }
+
+      .project-cover-image {
+        transition: none !important;
       }
     }
   </style>
-
 </head>
+
 
 <body>
 
-  <!-- HEADER -->
+  <!-- ==================================
+       MAIN HEADER
+  ================================== -->
+
   <header class="topbar">
 
     <div class="brand-illustration">
@@ -90,17 +146,34 @@
     </div>
 
     <nav class="nav" aria-label="Main navigation">
-      <a class="active" href="portfolio.html">HOME</a>
-      <a href="#about">ABOUT</a>
-      <a href="works.html">ALL WORKS</a>
-      <a href="#contact">CONTACT</a>
+
+      <a class="active" href="portfolio.html">
+        HOME
+      </a>
+
+      <a href="#about">
+        ABOUT
+      </a>
+
+      <a href="works.html">
+        ALL WORKS
+      </a>
+
+      <a href="#contact">
+        CONTACT
+      </a>
+
     </nav>
 
   </header>
 
 
-  <!-- STICKY NAVIGATION -->
+  <!-- ==================================
+       STICKY NAVIGATION
+  ================================== -->
+
   <div class="sticky-nav">
+
     <div class="container">
 
       <a class="mini-logo" href="index.html">
@@ -108,20 +181,38 @@
       </a>
 
       <nav aria-label="Section navigation">
-        <a href="#about">ABOUT</a>
-        <a href="#education">EDUCATION</a>
-        <a href="works.html">WORKS ↗</a>
-        <a href="#contact">CONTACT</a>
+
+        <a href="#about">
+          ABOUT
+        </a>
+
+        <a href="#education">
+          EDUCATION
+        </a>
+
+        <a href="works.html">
+          WORKS ↗
+        </a>
+
+        <a href="#contact">
+          CONTACT
+        </a>
+
       </nav>
 
     </div>
+
   </div>
 
 
   <main>
 
-    <!-- ABOUT ME -->
+    <!-- ==================================
+         ABOUT ME
+    ================================== -->
+
     <section class="about" id="about">
+
       <div class="container about-grid">
 
         <div>
@@ -130,23 +221,26 @@
             HELLO / I'M HANXU YU
           </div>
 
-          <h1 class="section-title" style="margin-top:20px">
+          <h1
+            class="section-title"
+            style="margin-top:20px">
             About Me.
           </h1>
 
           <p class="copy">
-            Hi, I'm Hanxu Yu, a Master's student in
-            Industrial Design at Eindhoven University
-            of Technology (TU/e).
+            Hi, I'm Hanxu Yu, a Master's student
+            in Industrial Design at Eindhoven
+            University of Technology (TU/e).
           </p>
 
           <p class="copy">
             My work explores interaction design,
             design research, and more-than-human
             perspectives. I'm interested in how
-            tangible interactions and textile practices
-            can support new ways of noticing,
-            interpreting, and relating to living systems.
+            tangible interactions and textile
+            practices can support new ways of
+            noticing, interpreting, and relating
+            to living systems.
           </p>
 
           <p class="copy">
@@ -160,35 +254,53 @@
             class="text-link"
             href="works.html"
             style="display:inline-block;margin-top:20px">
+
             EXPLORE MY WORK ↗
+
           </a>
 
         </div>
 
+
+        <!-- PORTRAIT -->
+
         <div class="portrait">
+
           <img
             src="portrait.jpg"
             alt="Hanxu Yu holding a green plush toy outdoors"
             loading="lazy">
+
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- EDUCATION -->
+    <!-- ==================================
+         EDUCATION
+    ================================== -->
+
     <section class="education" id="education">
+
       <div class="container">
 
         <div class="kicker">
           BACKGROUND / STUDY
         </div>
 
-        <h2 class="section-title" style="margin-top:20px">
+        <h2
+          class="section-title"
+          style="margin-top:20px">
+
           Education
+
         </h2>
 
+
         <!-- TU/e -->
+
         <div class="edu-entry">
 
           <div class="edu-years">
@@ -202,8 +314,12 @@
             </h3>
 
             <p>
-              <strong>MSc in Industrial Design</strong>
+              <strong>
+                MSc in Industrial Design
+              </strong>
+
               <br>
+
               Focus on research through design,
               tangible interaction, material exploration,
               and more-than-human design.
@@ -213,7 +329,9 @@
 
         </div>
 
+
         <!-- SUSTech -->
+
         <div class="edu-entry">
 
           <div class="edu-years">
@@ -223,16 +341,22 @@
           <div>
 
             <h3>
-              Southern University of Science and Technology
-              (SUSTech)
+              Southern University of Science
+              and Technology (SUSTech)
             </h3>
 
             <p>
-              <strong>BEng in Industrial Design</strong>
+
+              <strong>
+                BEng in Industrial Design
+              </strong>
+
               <br>
-              Focus on object design, well-being of
-              vulnerable groups, while also engaging
-              in interaction design.
+
+              Focus on object design, well-being
+              of vulnerable groups, while also
+              engaging in interaction design.
+
             </p>
 
           </div>
@@ -240,11 +364,16 @@
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- SELECTED WORKS -->
+    <!-- ==================================
+         SELECTED WORKS
+    ================================== -->
+
     <section class="works-preview" id="featured">
+
       <div class="container">
 
         <div class="kicker">
@@ -266,7 +395,11 @@
 
         <div class="project-grid">
 
-          <!-- PROJECT 01: MYKO -->
+
+          <!-- ===========================
+               PROJECT 01 — MYKO
+          =========================== -->
+
           <article class="project-card">
 
             <a href="myko.html">
@@ -274,9 +407,9 @@
               <div class="project-art art-myko">
 
                 <img
-                  class="myko-cover-image"
+                  class="project-cover-image"
                   src="myko-hero.jpg"
-                  alt="MyKo bio-based toy-making experience outdoors"
+                  alt="MyKo outdoor toy-making experience"
                   loading="lazy">
 
                 <span class="tag">
@@ -297,7 +430,44 @@
           </article>
 
 
-          <!-- PROJECT 02: PINPOP -->
+          <!-- ===========================
+               PROJECT 02 — LYBI
+          =========================== -->
+
+          <article class="project-card">
+
+            <a href="lybi.html">
+
+              <div class="project-art art-lybi">
+
+                <img
+                  class="project-cover-image"
+                  src="lybi-chat.png"
+                  alt="LyBi poetic conversational interface"
+                  loading="lazy">
+
+                <span class="tag">
+                  LLM INTERACTION
+                </span>
+
+              </div>
+
+              <h3>LyBi</h3>
+
+              <p>
+                LLM Interaction · Conversational Design
+                · Temporal Experience
+              </p>
+
+            </a>
+
+          </article>
+
+
+          <!-- ===========================
+               PROJECT 03 — PINPOP
+          =========================== -->
+
           <article class="project-card">
 
             <a href="project.html?id=pinpop">
@@ -324,7 +494,10 @@
           </article>
 
 
-          <!-- PROJECT 03: PLANT SENSING -->
+          <!-- ===========================
+               PROJECT 04 — PLANT SENSING
+          =========================== -->
+
           <article class="project-card">
 
             <a href="project.html?id=plant">
@@ -350,26 +523,36 @@
 
           </article>
 
+
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- CONTACT -->
+    <!-- ==================================
+         CONTACT
+    ================================== -->
+
     <section class="contact" id="contact">
+
       <div class="container">
 
         <div
           class="kicker"
           style="color:#fff0e3">
+
           LET'S CONNECT
+
         </div>
 
         <h2
           class="section-title"
           style="margin-top:20px">
+
           Contact.
+
         </h2>
 
         <p>
@@ -377,11 +560,18 @@
           You're welcome to send me an email.
         </p>
 
+        <!-- EMAIL -->
+
         <a
           class="email-link"
           href="mailto:akashic55256@gmail.com?subject=Portfolio%20Inquiry">
+
           EMAIL ME ↗ &nbsp; akashic55256@gmail.com
+
         </a>
+
+
+        <!-- SOCIAL LINKS -->
 
         <div class="socials">
 
@@ -389,33 +579,44 @@
             href="https://www.instagram.com/akashic071/"
             target="_blank"
             rel="noopener noreferrer">
+
             INSTAGRAM ↗
+
           </a>
 
           <a
             href="https://x.com/Dekihoshi"
             target="_blank"
             rel="noopener noreferrer">
+
             X ↗
+
           </a>
 
           <a
             href="https://www.linkedin.com/in/hanxu-yu-25a908374"
             target="_blank"
             rel="noopener noreferrer">
+
             LINKEDIN ↗
+
           </a>
 
         </div>
 
       </div>
+
     </section>
 
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- ==================================
+       FOOTER
+  ================================== -->
+
   <footer class="foot">
+
     <div class="container">
 
       <span>
@@ -423,6 +624,7 @@
       </span>
 
       <span>
+
         <a href="index.html">
           BACK TO INTRO ↗
         </a>
@@ -432,9 +634,11 @@
         <a href="works.html">
           ALL WORKS ↗
         </a>
+
       </span>
 
     </div>
+
   </footer>
 
   <script src="site.js"></script>
