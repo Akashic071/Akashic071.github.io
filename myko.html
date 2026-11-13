@@ -122,7 +122,9 @@
     /* HERO IMAGE */
 
     .hero-image {
-      margin: 0;
+      width: min(1080px, calc(100% - 48px));
+      margin: 0 auto 40px;
+      display: block;
     }
 
     .hero-image img {
@@ -130,7 +132,9 @@
       width: 100%;
       height: auto;
       max-height: 650px;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
+      margin: 0 auto;
     }
 
     .image-note {
