@@ -5,43 +5,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c0917">
-
   <title>All Works — Hanxu Yu | AKASHIC</title>
-  <meta name="description"
-    content="Selected design projects by Hanxu Yu.">
+  <meta name="description" content="Design projects by Hanxu Yu across interaction design, product design and material exploration.">
 
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* Real project covers */
+    /* IMAGE-BASED PROJECT COVERS */
 
     .project-art.art-myko,
     .project-art.art-lybi,
-    .project-art.art-mycare {
+    .project-art.art-mycare,
+    .project-art.art-vibes {
       position: relative;
       overflow: hidden;
     }
 
-    .project-art.art-myko { background: #b59d79; }
-    .project-art.art-lybi { background: #233e6a; }
-    .project-art.art-mycare { background: #e4a4b4; }
+    .project-art.art-myko {
+      background: #b59d79;
+    }
 
-    .project-art.art-myko .shape,
-    .project-art.art-lybi .shape,
-    .project-art.art-mycare .shape {
-      display: none !important;
+    .project-art.art-lybi {
+      background: #233e6a;
+    }
+
+    .project-art.art-mycare {
+      background: #e4a4b4;
+    }
+
+    .project-art.art-vibes {
+      background: #a6afbc;
     }
 
     .project-art .project-cover-image {
       position: absolute;
       inset: 0;
       z-index: 1;
+      display: block;
       width: 100%;
       height: 100%;
-      display: block;
       object-fit: cover;
       object-position: center;
       transition: transform .45s ease;
+    }
+
+    .project-art.art-vibes .project-cover-image {
+      object-position: center 44%;
     }
 
     .project-card a:hover .project-cover-image {
@@ -50,22 +59,21 @@
 
     .project-art.art-myko::after,
     .project-art.art-lybi::after,
-    .project-art.art-mycare::after {
+    .project-art.art-mycare::after,
+    .project-art.art-vibes::after {
       content: "";
       position: absolute;
       inset: 0;
       z-index: 2;
       background: linear-gradient(
         to top,
-        rgba(12, 9, 23, .60),
+        rgba(12,9,23,.6),
         transparent 65%
       );
       pointer-events: none;
     }
 
-    .project-art.art-myko .tag,
-    .project-art.art-lybi .tag,
-    .project-art.art-mycare .tag {
+    .project-art .tag {
       position: relative;
       z-index: 3;
     }
@@ -94,16 +102,19 @@
 
       <nav aria-label="Main navigation">
         <a href="portfolio.html">HOME</a>
+
         <a href="works.html" aria-current="page">
           ALL WORKS
         </a>
-        <a href="portfolio.html#contact">CONTACT</a>
+
+        <a href="portfolio.html#contact">
+          CONTACT
+        </a>
       </nav>
 
     </div>
   </div>
 
-  <!-- ALL WORKS -->
   <main class="allworks">
     <div class="container">
 
@@ -124,7 +135,7 @@
         class="project-grid"
         aria-label="Design projects">
 
-        <!-- 01 MYKO -->
+        <!-- 01 / MYKO -->
         <article class="project-card">
           <a href="myko.html">
 
@@ -151,7 +162,7 @@
           </a>
         </article>
 
-        <!-- 02 LYBI -->
+        <!-- 02 / LYBI -->
         <article class="project-card">
           <a href="lybi.html">
 
@@ -160,7 +171,7 @@
               <img
                 class="project-cover-image"
                 src="lybi-chat.png"
-                alt="LyBi poetic chatbot interface"
+                alt="LyBi poetic conversation interface"
                 loading="lazy">
 
               <span class="tag">
@@ -178,7 +189,7 @@
           </a>
         </article>
 
-        <!-- 03 MYCARE -->
+        <!-- 03 / MYCARE -->
         <article class="project-card">
           <a href="mycare.html">
 
@@ -187,7 +198,7 @@
               <img
                 class="project-cover-image"
                 src="Kits&amp;Strip2.png"
-                alt="MyCare portable HPV screening device concept"
+                alt="MyCare product concept"
                 loading="lazy">
 
               <span class="tag">
@@ -205,7 +216,34 @@
           </a>
         </article>
 
-        <!-- 04 PLANT SENSING -->
+        <!-- 04 / VIBESYETI -->
+        <article class="project-card">
+          <a href="vibesyeti.html">
+
+            <div class="project-art art-vibes">
+
+              <img
+                class="project-cover-image"
+                src="yeti (1).JPG"
+                alt="VibesYeti tactile plush toy prototype"
+                loading="lazy">
+
+              <span class="tag">
+                HAPTIC INTERACTION
+              </span>
+            </div>
+
+            <h3>VibesYeti</h3>
+
+            <p>
+              Tactile Companionship · Haptic Interaction
+              · Inclusive Design
+            </p>
+
+          </a>
+        </article>
+
+        <!-- 05 / PLANT SENSING -->
         <article class="project-card">
           <a href="project.html?id=plant">
 
@@ -227,28 +265,7 @@
           </a>
         </article>
 
-        <!-- 05 VIBESYETI -->
-        <article class="project-card">
-          <a href="project.html?id=vibes">
-
-            <div class="project-art art-vibes">
-              <div class="shape"></div>
-
-              <span class="tag">
-                INTERACTIVE PROTOTYPING
-              </span>
-            </div>
-
-            <h3>VibesYeti</h3>
-
-            <p>
-              Tactile Communication · Interactive Toy
-            </p>
-
-          </a>
-        </article>
-
-        <!-- 06 MATERIAL EXPLORATIONS -->
+        <!-- 06 / MATERIAL EXPLORATIONS -->
         <article class="project-card">
           <a href="project.html?id=explore">
 
@@ -270,6 +287,7 @@
         </article>
 
       </section>
+
     </div>
   </main>
 
@@ -277,17 +295,13 @@
   <footer class="foot">
     <div class="container">
 
-      <span>
-        © 2026 HANXU YU / AKASHIC
-      </span>
+      <span>© 2026 HANXU YU / AKASHIC</span>
 
       <span>
         <a href="mailto:akashic55256@gmail.com">
           EMAIL ↗
         </a>
-
         &nbsp;·&nbsp;
-
         <a href="portfolio.html">
           HOME ↗
         </a>
@@ -297,6 +311,5 @@
   </footer>
 
   <script src="site.js"></script>
-
 </body>
 </html>
