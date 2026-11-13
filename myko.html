@@ -5,20 +5,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c0917">
+
   <title>MyKo — Hanxu Yu | AKASHIC</title>
-  <meta name="description" content="MyKo is a mycelium-based toy-making toolkit encouraging open-ended play and sensory exploration for young children.">
+
+  <meta name="description"
+    content="MyKo is a mycelium-based toy-making toolkit for open-ended play and sensory exploration.">
+
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* MyKo project page */
+    /* ===== MYKO PAGE ===== */
+
     .myko-page {
-      --myko-bg: #0c0917;
-      --myko-text: #f5eee9;
-      --myko-muted: #b6aeb7;
-      --myko-accent: #dd7158;
-      background: var(--myko-bg);
-      color: var(--myko-text);
-      min-height: 100vh;
+      --bg: #0c0917;
+      --text: #f5eee9;
+      --muted: #b6aeb7;
+      --accent: #dd7158;
+
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .myko-page * {
+      box-sizing: border-box;
     }
 
     .myko-container {
@@ -26,36 +36,40 @@
       margin: 0 auto;
     }
 
+    /* Navigation */
+
     .myko-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
       padding: 30px 0;
       border-bottom: 1px solid #39313e;
     }
 
     .myko-nav a {
-      color: #f5eee9;
+      color: var(--text);
       text-decoration: none;
       font-size: 12px;
       letter-spacing: .1em;
     }
 
     .myko-logo {
+      font-size: 21px !important;
       font-weight: 800;
-      font-size: 20px !important;
       letter-spacing: -.03em !important;
     }
 
+    /* Hero */
+
     .myko-hero {
-      padding: 96px 0 56px;
+      padding: 90px 0 55px;
     }
 
     .myko-kicker {
-      color: var(--myko-accent);
+      color: var(--accent);
       font-size: 12px;
-      letter-spacing: .18em;
+      letter-spacing: .16em;
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -70,9 +84,8 @@
 
     .myko-subtitle {
       max-width: 780px;
-      font-size: clamp(19px, 2.8vw, 28px);
-      line-height: 1.45;
-      font-weight: 400;
+      font-size: clamp(20px, 2.8vw, 28px);
+      line-height: 1.5;
       color: #e7dce0;
       margin-bottom: 38px;
     }
@@ -92,26 +105,27 @@
     }
 
     .myko-cover {
-      margin: 0;
+      margin-top: 0;
+      margin-bottom: 0;
     }
 
     .myko-cover img {
       display: block;
       width: 100%;
-      height: auto;
       max-height: 620px;
       object-fit: cover;
-      object-position: center;
     }
 
     .myko-cover figcaption {
-      padding: 12px 0;
+      padding-top: 12px;
+      color: var(--muted);
       font-size: 12px;
-      color: var(--myko-muted);
     }
 
+    /* Content */
+
     .myko-content {
-      padding: 76px 0 110px;
+      padding: 80px 0;
     }
 
     .myko-section {
@@ -123,34 +137,35 @@
     }
 
     .myko-section h2 {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700;
-      line-height: 1.2;
       margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
     }
 
     .myko-section p {
       color: #d2c8d2;
       font-size: 16px;
       line-height: 1.9;
-      margin: 0 0 18px;
+      margin: 0 0 20px;
     }
 
     .myko-lead {
-      font-size: 20px !important;
       color: #f2e8e7 !important;
+      font-size: 20px !important;
       line-height: 1.7 !important;
     }
+
+    /* Making Journey */
 
     .myko-steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin-top: 28px;
+      margin: 28px 0;
     }
 
     .myko-step {
-      min-height: 136px;
+      min-height: 135px;
       padding: 24px 19px;
       background: #211724;
       border-radius: 6px;
@@ -158,44 +173,207 @@
 
     .myko-step-number {
       display: block;
-      color: var(--myko-accent);
+      color: var(--accent);
       font-size: 13px;
-      margin-bottom: 23px;
+      margin-bottom: 22px;
     }
 
     .myko-step-title {
+      color: #f7eeeb;
       font-size: 14px;
       line-height: 1.5;
-      color: #f7eeeb;
     }
+
+    /* ===== IMAGE CAROUSEL ===== */
+
+    .myko-gallery {
+      padding: 70px 0 100px;
+      border-top: 1px solid #38303d;
+    }
+
+    .gallery-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .gallery-heading h2 {
+      font-size: clamp(30px, 5vw, 52px);
+      margin: 14px 0 0;
+    }
+
+    .gallery-counter {
+      color: #c6b9c3;
+      font-size: 14px;
+      letter-spacing: .12em;
+      white-space: nowrap;
+    }
+
+    .gallery-viewport {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 5px;
+      background: #17121c;
+      touch-action: pan-y;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .gallery-viewport:active {
+      cursor: grabbing;
+    }
+
+    .gallery-viewport:focus-visible {
+      outline: 2px solid #dd7158;
+      outline-offset: 5px;
+    }
+
+    .gallery-track {
+      display: flex;
+      transition: transform .45s ease;
+      will-change: transform;
+    }
+
+    .gallery-slide {
+      flex: 0 0 100%;
+      min-width: 0;
+    }
+
+    .gallery-image-area {
+      height: clamp(280px, 49vw, 620px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f2ef;
+      overflow: hidden;
+    }
+
+    .gallery-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+
+    .gallery-caption {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 22px 24px;
+      min-height: 104px;
+      background: #211724;
+    }
+
+    .gallery-caption strong {
+      font-size: 16px;
+      color: #fff5ed;
+    }
+
+    .gallery-caption span {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #bdb1bf;
+    }
+
+    .gallery-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .gallery-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .gallery-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid #655463;
+      border-radius: 50%;
+      background: transparent;
+      color: #f6e9e5;
+      cursor: pointer;
+      font-size: 22px;
+      transition: background .2s, color .2s;
+    }
+
+    .gallery-arrow:hover {
+      background: #dd7158;
+      border-color: #dd7158;
+      color: #160b12;
+    }
+
+    .gallery-arrow:focus-visible,
+    .gallery-dot:focus-visible {
+      outline: 2px solid #dd7158;
+      outline-offset: 4px;
+    }
+
+    .gallery-dots {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .gallery-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #645762;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+
+    .gallery-dot.active {
+      background: #dd7158;
+      transform: scale(1.4);
+    }
+
+    /* Outcome */
 
     .myko-outcome {
       background: #a35f48;
       color: #fff4e9;
-      padding: 70px 0;
+      padding: 75px 0;
     }
 
     .myko-outcome h2 {
       font-size: clamp(30px, 5vw, 52px);
-      margin: 0 0 24px;
+      margin: 18px 0 24px;
     }
 
     .myko-outcome p {
-      max-width: 780px;
+      max-width: 800px;
       font-size: 18px;
       line-height: 1.8;
       margin: 0;
     }
 
+    /* Credits / Footer */
+
     .myko-credits {
-      padding: 48px 0;
-      border-top: 1px solid #39313e;
+      padding: 55px 0;
     }
 
     .myko-credits p {
       color: #c7bbc7;
-      line-height: 1.8;
       font-size: 13px;
+      line-height: 1.9;
     }
 
     .myko-footer {
@@ -216,6 +394,8 @@
       font-size: 12px;
     }
 
+    /* Responsive */
+
     @media (max-width: 700px) {
       .myko-hero {
         padding: 60px 0 40px;
@@ -230,16 +410,28 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .gallery-image-area {
+        height: 340px;
+      }
+
+      .gallery-caption {
+        padding: 18px;
+        min-height: 125px;
+      }
+
+      .gallery-controls {
+        flex-direction: column-reverse;
+      }
+
       .myko-footer-inner {
         flex-direction: column;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
+      .gallery-track,
+      .gallery-dot {
+        transition: none;
       }
     }
   </style>
@@ -247,26 +439,29 @@
 
 <body class="myko-page">
 
-  <!-- Navigation -->
+  <!-- NAVIGATION -->
   <header class="myko-container">
-    <nav class="myko-nav" aria-label="Main navigation">
-      <a class="myko-logo" href="portfolio.html">AKASHIC</a>
+    <nav class="myko-nav">
+      <a class="myko-logo" href="portfolio.html">
+        AKASHIC
+      </a>
       <a href="works.html">← ALL WORKS</a>
     </nav>
   </header>
 
   <main>
 
-    <!-- Project Introduction -->
+    <!-- HERO -->
     <section class="myko-hero myko-container">
       <div class="myko-kicker">
-        INDUSTRIAL DESIGN / BIO-MATERIAL / OPEN PLAY
+        BIO-BASED TOY DESIGN / OPEN-ENDED PLAY
       </div>
 
       <h1>MyKo.</h1>
 
       <p class="myko-subtitle">
-        Designing Living Artifacts for Open Play with Mycelium
+        Designing Living Artifacts for Open Play
+        with Mycelium
       </p>
 
       <div class="myko-meta">
@@ -277,20 +472,21 @@
       </div>
     </section>
 
-    <!-- Hero Image -->
+    <!-- MAIN IMAGE -->
     <figure class="myko-cover myko-container">
       <img
         src="myko-hero.jpg"
-        alt="A child riding a bicycle while an adult carries the MyKo incubator outdoors"
+        alt="MyKo outdoor activity and material collection"
         fetchpriority="high">
+
       <figcaption>
-        MyKo in an outdoor play scenario.
+        MyKo — Outdoor exploration and natural material collection.
       </figcaption>
     </figure>
 
     <div class="myko-content myko-container">
 
-      <!-- Overview -->
+      <!-- OVERVIEW -->
       <section class="myko-section" id="overview">
         <h2>Overview.</h2>
 
@@ -309,16 +505,16 @@
           </p>
 
           <p>
-            Rather than providing a finished toy, MyKo invites
-            children to participate in its creation, from
-            collecting materials outdoors to shaping,
+            Rather than providing a finished toy, MyKo
+            invites children to participate in its creation,
+            from collecting materials outdoors to shaping,
             observing, and eventually playing with their
             own mycelium-based objects.
           </p>
         </div>
       </section>
 
-      <!-- Research and Exploration -->
+      <!-- RESEARCH -->
       <section class="myko-section" id="research">
         <h2>Research & Exploration.</h2>
 
@@ -347,7 +543,7 @@
         </div>
       </section>
 
-      <!-- Design Process -->
+      <!-- PROCESS -->
       <section class="myko-section" id="process">
         <h2>The Making Journey.</h2>
 
@@ -403,14 +599,14 @@
             </div>
           </div>
 
-          <p style="margin-top:24px;font-size:13px">
+          <p style="font-size:13px">
             Heating, sterilization, and other potentially
             unsafe operations require adult supervision.
           </p>
         </div>
       </section>
 
-      <!-- Toolkit -->
+      <!-- TOOLKIT -->
       <section class="myko-section" id="toolkit">
         <h2>The Toolkit.</h2>
 
@@ -439,9 +635,186 @@
 
     </div>
 
-    <!-- Outcome -->
+    <!-- ===== PROJECT IMAGE GALLERY ===== -->
+    <section class="myko-gallery">
+      <div class="myko-container">
+
+        <div class="gallery-heading">
+          <div>
+            <div class="myko-kicker">
+              PROJECT / GALLERY
+            </div>
+
+            <h2>Design in Detail.</h2>
+          </div>
+
+          <div class="gallery-counter" aria-live="polite">
+            <span id="galleryCurrent">01</span>
+            /
+            <span id="galleryTotal">06</span>
+          </div>
+        </div>
+
+        <div class="gallery-viewport"
+             id="mykoGallery"
+             tabindex="0"
+             role="region"
+             aria-roledescription="carousel"
+             aria-label="MyKo project image gallery">
+
+          <div class="gallery-track" id="galleryTrack">
+
+            <!-- IMAGE 1 -->
+            <div class="gallery-slide">
+              <div class="gallery-image-area">
+                <img
+                  src="Timeline 1_01_00_54_01.png"
+                  alt="Child drawing on a mycelium-based toy"
+                  draggable="false">
+              </div>
+
+              <div class="gallery-caption">
+                <strong>Play & Personalisation</strong>
+                <span>
+                  Exploring creative expression through
+                  decorating self-made mycelium toys.
+                </span>
+              </div>
+            </div>
+
+            <!-- IMAGE 2 -->
+            <div class="gallery-slide">
+              <div class="gallery-image-area">
+                <img
+                  src="777743-Myko-1.jpg"
+                  alt="MyKo incubator prototype with removable lid and front window"
+                  loading="lazy"
+                  draggable="false">
+              </div>
+
+              <div class="gallery-caption">
+                <strong>The Incubator</strong>
+                <span>
+                  A multifunctional device supporting
+                  material growth, observation, and drying.
+                </span>
+              </div>
+            </div>
+
+            <!-- IMAGE 3 -->
+            <div class="gallery-slide">
+              <div class="gallery-image-area">
+                <img
+                  src="IMG_0143.jpg"
+                  alt="Disassembled lower section of the incubator"
+                  loading="lazy"
+                  draggable="false">
+              </div>
+
+              <div class="gallery-caption">
+                <strong>Internal Structure</strong>
+                <span>
+                  The lower assembly of the incubator,
+                  including its removable storage compartment.
+                </span>
+              </div>
+            </div>
+
+            <!-- IMAGE 4 -->
+            <div class="gallery-slide">
+              <div class="gallery-image-area">
+                <img
+                  src="IMG_9894.jpg"
+                  alt="MyKo incubator configured as a carrying basket"
+                  loading="lazy"
+                  draggable="false">
+              </div>
+
+              <div class="gallery-caption">
+                <strong>Collection Basket</strong>
+                <span>
+                  The incubator transforms into a portable
+                  basket for gathering natural materials outdoors.
+                </span>
+              </div>
+            </div>
+
+            <!-- IMAGE 5 -->
+            <div class="gallery-slide">
+              <div class="gallery-image-area">
+                <img
+                  src="777743-Myko-2.jpg"
+                  alt="Finished mycelium toy samples"
+                  loading="lazy"
+                  draggable="false">
+              </div>
+
+              <div class="gallery-caption">
+                <strong>Mycelium-based Toys</strong>
+                <span>
+                  Experimental objects grown from natural
+                  substrates bound together by mycelium.
+                </span>
+              </div>
+            </div>
+
+            <!-- IMAGE 6 -->
+            <div class="gallery-slide">
+              <div class="gallery-image-area">
+                <img
+                  src="IMG_9961.jpg"
+                  alt="Two transparent resin mold halves"
+                  loading="lazy"
+                  draggable="false">
+              </div>
+
+              <div class="gallery-caption">
+                <strong>Transparent Molds</strong>
+                <span>
+                  Separable molds designed to support
+                  filling, growth observation, and demolding.
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="gallery-controls">
+
+          <div class="gallery-buttons">
+            <button
+              class="gallery-arrow"
+              id="galleryPrev"
+              type="button"
+              aria-label="Previous image">
+              &#8592;
+            </button>
+
+            <button
+              class="gallery-arrow"
+              id="galleryNext"
+              type="button"
+              aria-label="Next image">
+              &#8594;
+            </button>
+          </div>
+
+          <div class="gallery-dots"
+               id="galleryDots"
+               aria-label="Choose gallery image">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- OUTCOME -->
     <section class="myko-outcome">
       <div class="myko-container">
+
         <div class="myko-kicker" style="color:#ffe2cc">
           DESIGN OUTCOME
         </div>
@@ -457,13 +830,17 @@
           and awareness of natural transformation by
           participating in the creation of their own toys.
         </p>
+
       </div>
     </section>
 
-    <!-- Credits -->
+    <!-- CREDITS -->
     <section class="myko-credits">
       <div class="myko-container">
-        <div class="myko-kicker">PROJECT CREDITS</div>
+
+        <div class="myko-kicker">
+          PROJECT CREDITS
+        </div>
 
         <p>
           Team: Hanxu Yu, Shiang-Ting Huang,
@@ -473,22 +850,179 @@
           <br>
           September – December 2025
         </p>
+
       </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="myko-footer">
     <div class="myko-container myko-footer-inner">
+
       <span>© 2026 HANXU YU / AKASHIC</span>
+
       <div>
         <a href="works.html">ALL WORKS ↗</a>
         &nbsp;&nbsp;
         <a href="portfolio.html">BACK HOME ↗</a>
       </div>
+
     </div>
   </footer>
+
+  <!-- ===== CAROUSEL JAVASCRIPT ===== -->
+  <script>
+    (() => {
+      const gallery = document.getElementById("mykoGallery");
+      const track = document.getElementById("galleryTrack");
+      const slides = Array.from(
+        track.querySelectorAll(".gallery-slide")
+      );
+
+      const prev = document.getElementById("galleryPrev");
+      const next = document.getElementById("galleryNext");
+      const dotsContainer = document.getElementById("galleryDots");
+      const currentLabel = document.getElementById("galleryCurrent");
+      const totalLabel = document.getElementById("galleryTotal");
+
+      let current = 0;
+      let pointerStart = null;
+
+      const total = slides.length;
+
+      totalLabel.textContent =
+        String(total).padStart(2, "0");
+
+      // Create navigation dots
+      const dots = slides.map((slide, index) => {
+        const dot = document.createElement("button");
+
+        dot.type = "button";
+        dot.className = "gallery-dot";
+        dot.setAttribute(
+          "aria-label",
+          `Go to image ${index + 1}`
+        );
+
+        dot.addEventListener("click", () => goTo(index));
+        dotsContainer.appendChild(dot);
+
+        return dot;
+      });
+
+      function goTo(index) {
+        current = (index + total) % total;
+
+        track.style.transform =
+          `translateX(-${current * 100}%)`;
+
+        currentLabel.textContent =
+          String(current + 1).padStart(2, "0");
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === current);
+          dot.setAttribute(
+            "aria-current",
+            i === current ? "true" : "false"
+          );
+        });
+
+        slides.forEach((slide, i) => {
+          slide.setAttribute(
+            "aria-hidden",
+            i === current ? "false" : "true"
+          );
+        });
+      }
+
+      prev.addEventListener("click", () => {
+        goTo(current - 1);
+      });
+
+      next.addEventListener("click", () => {
+        goTo(current + 1);
+      });
+
+      // Keyboard navigation
+      gallery.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          goTo(current + 1);
+        }
+
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          goTo(current - 1);
+        }
+      });
+
+      // Mouse dragging and touch swiping
+      gallery.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "mouse" &&
+            event.button !== 0) return;
+
+        pointerStart = {
+          x: event.clientX,
+          y: event.clientY,
+          id: event.pointerId
+        };
+
+        if (event.pointerType === "mouse") {
+          gallery.setPointerCapture(event.pointerId);
+        }
+      });
+
+      gallery.addEventListener("pointerup", (event) => {
+        if (!pointerStart) return;
+
+        const dx = event.clientX - pointerStart.x;
+        const dy = event.clientY - pointerStart.y;
+
+        if (Math.abs(dx) > 45 &&
+            Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) {
+            goTo(current + 1);
+          } else {
+            goTo(current - 1);
+          }
+        }
+
+        pointerStart = null;
+      });
+
+      gallery.addEventListener("pointercancel", () => {
+        pointerStart = null;
+      });
+
+      // Horizontal trackpad / wheel navigation
+      let wheelLocked = false;
+
+      gallery.addEventListener("wheel", (event) => {
+        if (Math.abs(event.deltaX) <=
+            Math.abs(event.deltaY)) return;
+
+        event.preventDefault();
+
+        if (wheelLocked) return;
+
+        if (event.deltaX > 0) {
+          goTo(current + 1);
+        } else {
+          goTo(current - 1);
+        }
+
+        wheelLocked = true;
+
+        setTimeout(() => {
+          wheelLocked = false;
+        }, 450);
+      }, { passive: false });
+
+      // Initialise
+      goTo(0);
+    })();
+  </script>
 
 </body>
 </html>
