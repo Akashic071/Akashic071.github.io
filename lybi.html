@@ -1,0 +1,499 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0917">
+
+  <title>LyBi — Hanxu Yu | AKASHIC</title>
+  <meta name="description"
+    content="LyBi — An LLM-powered poetic conversational experience exploring temporal perception in public waiting spaces.">
+
+  <style>
+    :root {
+      --bg: #0c0917;
+      --text: #f5eee9;
+      --muted: #bcb5c7;
+      --line: #39313e;
+      --blue: #9dbcf1;
+      --orange: #e6ab74;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1080px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .back-link {
+      font-size: 12px;
+      letter-spacing: .1em;
+    }
+
+    .back-link:hover { color: var(--blue); }
+
+    /* Hero */
+
+    .hero { padding: 90px 0 65px; }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .15em;
+    }
+
+    .hero h1 {
+      font-size: clamp(80px, 14vw, 165px);
+      letter-spacing: -.075em;
+      line-height: 1;
+      margin: 18px 0;
+    }
+
+    .subtitle {
+      font-size: clamp(21px, 3vw, 30px);
+      line-height: 1.45;
+      color: #e4dfe8;
+      max-width: 820px;
+      margin: 0 0 35px;
+    }
+
+    .metadata {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .metadata span {
+      border: 1px solid #55475d;
+      border-radius: 30px;
+      padding: 9px 15px;
+      font-size: 11px;
+      color: #d9d1de;
+    }
+
+    /* Prototype link */
+
+    .prototype-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 28px;
+      padding: 19px 25px;
+      background: #bdcfed;
+      color: #142341;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      border-radius: 4px;
+      transition: background .2s, transform .2s;
+    }
+
+    .prototype-button:hover {
+      background: #e1e9f8;
+      transform: translateY(-2px);
+    }
+
+    /* Main visual */
+
+    .main-visual {
+      margin: 0 auto;
+      width: min(1080px, calc(100% - 48px));
+    }
+
+    .main-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 5px;
+    }
+
+    .image-caption {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Project introduction */
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 55px;
+      padding: 100px 0;
+    }
+
+    .intro h2 {
+      font-size: 38px;
+      letter-spacing: -.04em;
+      margin: 0;
+    }
+
+    .intro p {
+      font-size: 17px;
+      line-height: 1.9;
+      color: #dcd3df;
+      margin: 0;
+    }
+
+    /* Image showcase */
+
+    .showcase {
+      border-top: 1px solid var(--line);
+      padding: 70px 0 100px;
+    }
+
+    .showcase h2 {
+      font-size: clamp(34px, 5vw, 52px);
+      margin: 14px 0 35px;
+      letter-spacing: -.04em;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .image-block {
+      margin: 0;
+    }
+
+    .image-block img {
+      width: 100%;
+      display: block;
+      border-radius: 5px;
+      border: 1px solid #39313e;
+    }
+
+    .image-block figcaption {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* Development */
+
+    .development {
+      padding: 75px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .development-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 55px;
+    }
+
+    .development h2 {
+      font-size: 34px;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .development p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #dcd3df;
+      margin: 0;
+    }
+
+    /* Closing */
+
+    .project-end {
+      background: #233e6a;
+      padding: 75px 0;
+    }
+
+    .project-end h2 {
+      font-size: clamp(30px, 5vw, 50px);
+      margin: 15px 0 22px;
+    }
+
+    .project-end p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #e0e7f4;
+    }
+
+    .project-end .prototype-button {
+      margin-top: 25px;
+      background: #f2e4cd;
+      color: #33231a;
+    }
+
+    .credits {
+      padding-top: 25px;
+      color: #c6d4eb;
+      font-size: 13px !important;
+    }
+
+    /* Footer */
+
+    footer { padding: 35px 0 55px; }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer a:hover { color: var(--blue); }
+
+    @media (max-width: 700px) {
+      .container,
+      .main-visual {
+        width: calc(100% - 32px);
+      }
+
+      .hero { padding: 60px 0 45px; }
+
+      .intro,
+      .development-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .intro { padding: 70px 0; }
+
+      .image-grid { grid-template-columns: 1fr; }
+
+      .prototype-button {
+        width: 100%;
+        justify-content: space-between;
+        font-size: 11px;
+        gap: 12px;
+      }
+
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      .prototype-button { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="container">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="logo" href="portfolio.html">AKASHIC</a>
+      <a class="back-link" href="works.html">
+        ← ALL WORKS
+      </a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- PROJECT HEADER -->
+    <section class="hero container">
+
+      <div class="eyebrow">
+        LLM INTERACTION / CONVERSATIONAL DESIGN
+      </div>
+
+      <h1>LyBi.</h1>
+
+      <p class="subtitle">
+        Poet Immortal — Reimagining Waiting
+        Through AI and Poetry
+      </p>
+
+      <div class="metadata">
+        <span>TU/e · Designing Conversational Experiences</span>
+        <span>2026</span>
+        <span>Group Project</span>
+        <span>LLM Prototype</span>
+      </div>
+
+      <a
+        class="prototype-button"
+        href="https://data.id.tue.nl/web/djI6akRheWJoSXF5c2h0NnQ1TjltWDZRTmRCUV8zMXZ6YngxQkpZVFd4ZmI0Wl9DdjB3WURFQS1USEQ1ZV9rdnc=/display.html?view=tab"
+        target="_blank"
+        rel="noopener noreferrer">
+        OPEN INTERACTIVE PROTOTYPE
+        <span>↗</span>
+      </a>
+    </section>
+
+    <!-- MAIN SCREENSHOT -->
+    <figure class="main-visual">
+      <img
+        src="lybi-display.png"
+        alt="Poet Immortal public display showing a QR code"
+        fetchpriority="high">
+
+      <figcaption class="image-caption">
+        LyBi public display — Scan the QR code to connect.
+      </figcaption>
+    </figure>
+
+    <!-- SHORT INTRODUCTION -->
+    <section class="intro container">
+      <h2>About LyBi.</h2>
+
+      <p>
+        LyBi is an LLM-powered conversational
+        experience designed to reimagine waiting
+        in public spaces. Inspired by the Chinese
+        poet Li Bai, it invites people to observe
+        their surroundings and co-create poetic
+        conversations, exploring how imagination
+        and interaction can reshape the subjective
+        experience of time.
+      </p>
+    </section>
+
+    <!-- INTERFACE IMAGES -->
+    <section class="showcase">
+      <div class="container">
+
+        <div class="eyebrow">PROJECT / INTERFACE</div>
+        <h2>Interaction Experience.</h2>
+
+        <div class="image-grid">
+
+          <figure class="image-block">
+            <img
+              src="lybi-connect.png"
+              alt="LyBi mobile interface for connecting to a public display"
+              loading="lazy">
+
+            <figcaption>
+              01 / Mobile connection interface.
+              Participants connect to the
+              public installation through their device.
+            </figcaption>
+          </figure>
+
+          <figure class="image-block">
+            <img
+              src="lybi-chat.png"
+              alt="Conversation between a user and the AI poet LyBi"
+              loading="lazy">
+
+            <figcaption>
+              02 / Poetic dialogue.
+              LyBi turns everyday observations
+              into imaginative conversations.
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVELOPMENT APPROACH -->
+    <section class="development">
+      <div class="container development-grid">
+
+        <h2>Development Approach.</h2>
+
+        <p>
+          The interactive prototype was developed
+          through a combination of AI-assisted
+          vibe coding and hands-on coding and
+          iteration. AI-generated code was
+          reviewed, adjusted, and refined
+          manually to develop the interface,
+          interaction flow, and prototype
+          behaviour.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- DEMO & CREDITS -->
+    <section class="project-end">
+      <div class="container">
+
+        <div class="eyebrow" style="color:#c9dbff">
+          EXPLORE THE PROTOTYPE
+        </div>
+
+        <h2>Have a Conversation with LyBi.</h2>
+
+        <p>
+          Visit the online prototype to explore
+          the interface and experience the
+          poetic conversational concept.
+          Availability of the live LLM connection
+          depends on the TU/e hosting environment.
+        </p>
+
+        <a
+          class="prototype-button"
+          href="https://data.id.tue.nl/web/djI6akRheWJoSXF5c2h0NnQ1TjltWDZRTmRCUV8zMXZ6YngxQkpZVFd4ZmI0Wl9DdjB3WURFQS1USEQ1ZV9rdnc=/display.html?view=tab"
+          target="_blank"
+          rel="noopener noreferrer">
+          VIEW ONLINE PROTOTYPE
+          <span>↗</span>
+        </a>
+
+        <p class="credits">
+          Eindhoven University of Technology (TU/e)
+          <br>
+          January 2026
+          <br>
+          Team: Hanxu Yu, Tobias Visch, Ruotong Zhang
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 HANXU YU / AKASHIC</span>
+
+      <div>
+        <a href="works.html">ALL WORKS ↗</a>
+        &nbsp;·&nbsp;
+        <a href="portfolio.html">BACK HOME ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
