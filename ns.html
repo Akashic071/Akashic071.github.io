@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0917">
+  <meta name="description" content="A UX research and interface exploration project for improving international business train travel.">
+  <title>International Train Travel UX — Hanxu Yu | AKASHIC</title>
+  <style>
+    :root { --bg:#0c0917; --text:#f6f2f7; --muted:#c3bccc; --line:#383245; --blue:#aec9f3; --yellow:#ffce37; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Arial,Helvetica,sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    img { max-width:100%; }
+    .container { width:min(1080px,calc(100% - 48px)); margin-inline:auto; }
+    .top-nav { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:30px 0; border-bottom:1px solid var(--line); }
+    .logo { font-size:22px; font-weight:800; letter-spacing:-.04em; }
+    .back-link { font-size:12px; letter-spacing:.1em; }
+    .back-link:hover, footer a:hover { color:var(--blue); }
+    .hero { padding:80px 0 48px; }
+    .eyebrow { color:var(--blue); font-size:12px; font-weight:700; letter-spacing:.15em; }
+    .hero h1 { font-size:clamp(43px,6.6vw,78px); line-height:1.08; letter-spacing:-.055em; max-width:950px; margin:21px 0; }
+    .subtitle { font-size:clamp(19px,2.5vw,27px); color:#e2ddeb; margin:0 0 31px; line-height:1.45; }
+    .metadata { display:flex; flex-wrap:wrap; gap:10px; }
+    .metadata span { border:1px solid #5b5269; border-radius:30px; padding:9px 14px; font-size:11px; color:#dcd4e1; }
+    .hero-image { margin:0 auto; width:min(1080px,calc(100% - 48px)); }
+    .hero-image img { display:block; width:100%; height:auto; border-radius:5px; }
+    figcaption { color:var(--muted); font-size:12px; line-height:1.6; margin-top:12px; }
+    .intro { padding:92px 0; display:grid; grid-template-columns:1fr 2fr; gap:50px; }
+    h2 { margin:0; font-size:clamp(30px,4vw,44px); letter-spacing:-.045em; }
+    .intro p, .section-description { margin:0; color:#ded6e4; font-size:16px; line-height:1.9; }
+    .section { border-top:1px solid var(--line); padding:76px 0 90px; }
+    .section-heading { margin-bottom:32px; }
+    .section-heading h2 { margin-top:14px; margin-bottom:18px; }
+    .section-description { max-width:780px; }
+    .research-grid { display:grid; grid-template-columns:1.25fr 1fr; gap:26px; align-items:start; }
+    .research-grid figure, .gallery figure { margin:0; min-width:0; }
+    .research-grid img { display:block; width:100%; height:auto; border-radius:4px; background:#f7f7f7; }
+    .research-grid .stakeholder { background:#fff; }
+    .gallery { display:grid; gap:40px; }
+    .gallery img { display:block; width:100%; height:auto; border-radius:5px; }
+    .focus { padding-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .focus figure { margin:0; }
+    .focus-image { background:#152a51; padding:22px; border-radius:5px; display:flex; justify-content:center; align-items:center; height:530px; }
+    .focus-image img { display:block; width:auto; max-width:100%; height:100%; object-fit:contain; }
+    .closing { background:#19335a; padding:76px 0; }
+    .closing-grid { display:grid; grid-template-columns:1fr 2fr; gap:50px; }
+    .closing p { margin:0 0 20px; color:#e4eaf4; font-size:16px; line-height:1.85; }
+    .closing small { color:#b9c9e1; font-size:12px; line-height:1.8; display:block; }
+    footer { padding:35px 0 50px; }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px; color:var(--muted); font-size:12px; }
+    a:focus-visible { outline:2px solid var(--yellow); outline-offset:4px; }
+    @media (max-width:700px) {
+      .container,.hero-image { width:calc(100% - 32px); }
+      .hero { padding:60px 0 40px; }
+      .intro,.research-grid,.focus,.closing-grid { grid-template-columns:1fr; gap:24px; }
+      .intro { padding:65px 0; }
+      .section { padding:60px 0; }
+      .focus-image { height:420px; }
+      .footer-inner { flex-direction:column; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="logo" href="portfolio.html">AKASHIC</a>
+      <a class="back-link" href="works.html">← ALL WORKS</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero container">
+      <div class="eyebrow">UX RESEARCH / SERVICE DESIGN / INTERFACE EXPLORATION</div>
+      <h1>Improving the International Train Travel Experience.</h1>
+      <p class="subtitle">A conceptual UX exploration for NS International business travellers.</p>
+      <div class="metadata">
+        <span>TU/e · DDM150</span><span>2026</span><span>Team Project</span><span>UX / Service Design</span>
+      </div>
+    </section>
+    <figure class="hero-image">
+      <img src="ns-title.png" alt="NS International concept title image featuring station navigation, workspace booking and disruption interfaces" fetchpriority="high">
+      <figcaption>NS International — Conceptual UX and interface exploration. Not an official NS International product release.</figcaption>
+    </figure>
+    <section class="intro container">
+      <h2>Project Overview.</h2>
+      <p>This short design challenge explored how international business travellers could be better supported across their journeys. Our team investigated fragmented travel information, missed disruption alerts and the difficulty of making decisions under time pressure. We explored improvements to digital touchpoints within the NS International travel experience, informed by journey mapping and stakeholder analysis.</p>
+    </section>
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">01 / UX RESEARCH</div>
+          <h2>Understanding the Journey.</h2>
+          <p class="section-description">We mapped the end-to-end journey and its connected services to identify friction points. In particular, travellers working with headphones could miss important updates, while disruptions could force them to search across multiple systems for reliable guidance.</p>
+        </div>
+        <div class="research-grid">
+          <figure>
+            <img src="ns-journey-map.png" alt="User journey map covering booking, station arrival, travelling and disruptions" loading="lazy">
+            <figcaption>01 / User Journey Map — touchpoints, emotional changes and moments of disruption.</figcaption>
+          </figure>
+          <figure>
+            <img class="stakeholder" src="ns-stakeholder-analysis.png" alt="Stakeholder analysis of the business travel service system" loading="lazy">
+            <figcaption>02 / Stakeholder Analysis — interactions between passengers, NS International and other service providers.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="ui">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">02 / INTERFACE EXPLORATION</div>
+          <h2>Exploring Digital Touchpoints.</h2>
+          <p class="section-description">Building on these findings, we created concept interfaces for station navigation, workspace booking and journey disruption support. The screens below are design proposals rather than implemented NS International features.</p>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="ns-ui-journey.png" alt="Four original UI screens for journey search, station navigation, workspace booking and public transport" loading="lazy">
+            <figcaption>Journey & Station Services — travel planning, wayfinding and access to workspaces.</figcaption>
+          </figure>
+          <figure>
+            <img src="ns-ui-disruption.png" alt="Four original UI screens for journey status, disruptions, alerts and informing clients" loading="lazy">
+            <figcaption>Travel Disruption & Assistance — communicating delays and supporting next-step decisions.</figcaption>
+          </figure>
+        </div>
+        <div class="focus">
+          <figure>
+            <div class="focus-image"><img src="Group 13.png" alt="Station map concept with lounge navigation route" loading="lazy"></div>
+            <figcaption>Selected detail / Station navigation and lounge information.</figcaption>
+          </figure>
+          <figure>
+            <div class="focus-image"><img src="Group 44.png" alt="Disruption announcement interface with delay information and advice" loading="lazy"></div>
+            <figcaption>Selected detail / Disruption guidance and proposed next actions.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="closing">
+      <div class="container closing-grid">
+        <div><div class="eyebrow">03 / CONTRIBUTION</div><h2 style="margin-top:14px">My Role.</h2></div>
+        <div>
+          <p>My contributions included discussions on the overall design direction, stakeholder analysis and UI design. The challenge helped me explore how user needs, interface decisions and service-level constraints connect in a business travel context.</p>
+          <small>TU/e · DDM150 User Experience Theory and Practice · Team 14 (Dirk Knapen, Chenghao Wang, Hanxu Yu, Nidhi Hira). This was a short concept-design exercise based largely on secondary research; the proposals have not been validated through systematic testing with international business travellers.</small>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><span>© 2026 HANXU YU / AKASHIC</span><span><a href="works.html">ALL WORKS ↗</a> &nbsp;·&nbsp; <a href="portfolio.html">BACK HOME ↗</a></span></div></footer>
+</body>
+</html>
