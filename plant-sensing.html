@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0917">
+  <meta name="description" content="Hanxu Yu's M21 preparation for the Final Master Project, exploring human–plant interaction through sound, touch, and textile sensing.">
+  <title>Plant Sensing — Hanxu Yu | AKASHIC</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .plant-page .plant-block {
+      padding-block: clamp(2rem, 5vw, 4rem);
+      border-top: 1px solid currentColor;
+    }
+
+    .plant-page .plant-block p,
+    .plant-page .plant-block h2 {
+      max-width: 62ch;
+    }
+
+    .plant-page .plant-experiments {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+      gap: 1.5rem 2rem;
+    }
+
+    .plant-page .plant-experiments h3 {
+      margin-block-end: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="sticky-nav">
+    <div class="container">
+      <a class="mini-logo" href="portfolio.html">AKASHIC</a>
+      <nav aria-label="Main navigation">
+        <a href="portfolio.html">HOME</a>
+        <a href="works.html">ALL WORKS</a>
+        <a href="portfolio.html#contact">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="allworks plant-page">
+    <div class="container">
+      <header>
+        <p class="kicker">M21 / PREPARATION FOR FINAL MASTER PROJECT</p>
+        <h1>Plant Sensing</h1>
+        <p><strong>Work in Progress</strong></p>
+        <p class="intro">
+          What can sound and touch draw our attention to when we spend time with a plant?
+          During M21, I explored this question with a Gloxinia, an ESP32, and handmade textile
+          sensors as preparation for my Final Master Project.
+        </p>
+      </header>
+
+      <section class="plant-block" aria-labelledby="plant-radio">
+        <h2 id="plant-radio">Plant Radio</h2>
+        <p>
+          With Gloxinia as the plant I worked with, I used an ESP32 to explore how sensor
+          inputs might be translated into sound. I wanted to see what a listening
+          interaction might invite someone to notice around the plant.
+        </p>
+        <p>
+          The sounds in Plant Radio were design interpretations of prototype inputs.
+          What those inputs can tell us about the plant’s physiology remains unverified.
+        </p>
+      </section>
+
+      <section class="plant-block" aria-labelledby="plant-materials">
+        <h2 id="plant-materials">Textile Sensors and Touch</h2>
+        <div class="plant-experiments">
+          <article>
+            <h3>Pompom Pressure Sensor</h3>
+            <p>I used a textile pompom to explore how a soft, compressible form could serve as a pressure input.</p>
+          </article>
+          <article>
+            <h3>Moisture-Sensitive Fabric</h3>
+            <p>I explored how a fabric sample could respond to wetting as a possible input for an interaction.</p>
+          </article>
+          <article>
+            <h3>Stretch Sensor</h3>
+            <p>The stretch sensor prototype failed. It left me with a question for a future iteration about how to check whether repeated stretches produce comparable readings.</p>
+          </article>
+          <article>
+            <h3>Touch Exploration</h3>
+            <p>I explored touch as a way to begin an interaction around a plant and considered what kind of feedback could make that gesture feel meaningful.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="plant-block" aria-labelledby="plant-next">
+        <h2 id="plant-next">Questions for the Final Master Project</h2>
+        <p>
+          Which inputs can I reproduce under the same conditions? How can the feedback
+          make its connection to a gesture or a material change clear? These questions
+          carry forward from the M21 prototypes into the next stage of the project.
+        </p>
+        <p><a href="works.html">← Back to All Works</a></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="container">
+      <span>© 2026 HANXU YU / AKASHIC</span>
+      <span>
+        <a href="mailto:akashic55256@gmail.com">EMAIL ↗</a>
+        &nbsp;·&nbsp;
+        <a href="portfolio.html">HOME ↗</a>
+      </span>
+    </div>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>
